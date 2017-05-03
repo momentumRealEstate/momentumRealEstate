@@ -8,17 +8,10 @@ import SignUp from './auth/SignupCompo.js'
 import RaisedButton from 'material-ui/RaisedButton';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
+import {config} from './auth/config.js'
 
 
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyBnWOEjLjaAxM6l5PFiJPIMitiVsHOFt2s",
-    authDomain: "realestate-momentum.firebaseapp.com",
-    databaseURL: "https://realestate-momentum.firebaseio.com",
-    projectId: "realestate-momentum",
-    storageBucket: "realestate-momentum.appspot.com",
-    messagingSenderId: "1031982827010"
-  };
+
   firebase.initializeApp(config);
 
 
