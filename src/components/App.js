@@ -9,6 +9,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
 import {config} from './auth/config.js'
+import axios from 'axios'
 
 
 
@@ -20,10 +21,28 @@ class App extends React.Component {
     super (props)
     this.state = {
     }
+    this.ajaxRequest = this.ajaxRequest.bind(this);
+  }
+
+  ajaxRequest(userObj) {
+    let userStr = '';
+
+    for (let key in userObj) {
+      userStr += key + "=" + userObj[key];
+    }
+
+    axios.post(`https://us-central1-realestate-momentum.cloudfunctions.net/sendTemplate?${userStr}`)
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   }
 
   componentDidMount() {
     var val = this;
+    this.ajaxRequest({user:'kai',userEmail:'kaihsia',templateId:'af985c90-a59e-4682-9282-c1588567e43e',templateName:'sample_2'});
     firebase.auth().onAuthStateChanged(function(user) {
       if (user) {
         // User is signed in.
