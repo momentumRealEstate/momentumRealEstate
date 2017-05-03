@@ -12,7 +12,7 @@ import {config} from './auth/config.js'
 
 
 
-  firebase.initializeApp(config);
+firebase.initializeApp(config);
 
 
 class App extends React.Component {
