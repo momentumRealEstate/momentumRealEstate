@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import './App.css';
 import { Router, Route, Link, hashHistory } from 'react-router'
 import * as firebase from 'firebase';
-import SignUp from './authComponents/SignupComponent.js'
-import LogIn from './authComponents/LoginComponent.js'
-import SignOut from './authComponents/SignoutComponent.js'
+import SignUp from './auth/SignupCompo.js'
+// import LogIn from './authComponents/LoginComponent.js'
+// import SignOut from './authComponents/SignoutComponent.js'
 import RaisedButton from 'material-ui/RaisedButton';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
@@ -30,8 +30,6 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    this.timerId = setInterval(() => this.tick(), 3000)
-
     var val = this;
     firebase.auth().onAuthStateChanged(function(user) {
       if (user) {
@@ -77,7 +75,7 @@ class App extends React.Component {
 
     return (
       <div>
-
+        <SignUp/>
       </div>
     );
   }
